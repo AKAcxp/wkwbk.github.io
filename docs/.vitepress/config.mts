@@ -93,6 +93,45 @@ export default defineConfig({
   // Fav 图标
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }],
+    ['style', {}, `
+      /* 圆形 logo 样式 */
+      .VPNavBarTitle img.logo,
+      .VPImage.image-src,
+      img.VPImage.logo,
+      .VPHero img,
+      .VPNavBarTitle .logo,
+      .VPImage,
+      img[src*="logo.png"] {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease !important;
+      }
+
+      /* 首页 hero 部分的 logo */
+      .VPHero .image-container img {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+      }
+
+      /* 导航栏的 logo */
+      .VPNavBarTitle .logo {
+        border-radius: 50% !important;
+        overflow: hidden !important;
+      }
+
+      /* 鼠标悬停效果 */
+      .VPNavBarTitle img.logo:hover,
+      .VPImage.image-src:hover,
+      img.VPImage.logo:hover,
+      .VPHero img:hover,
+      .VPNavBarTitle .logo:hover,
+      .VPImage:hover,
+      img[src*="logo.png"]:hover {
+        transform: scale(1.05) !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+      }
+    `],
   ],
 
   // 站点地图

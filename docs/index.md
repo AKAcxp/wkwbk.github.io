@@ -33,9 +33,11 @@ features:
 
 <confetti />
 <HomeUnderline />
+<CircleLogo />
 
 <script setup>
 import MFriends from './home/MFriends.vue'
+import CircleLogo from './.vitepress/theme/components/CircleLogo.vue'
 </script>
 
 <ClientOnly>

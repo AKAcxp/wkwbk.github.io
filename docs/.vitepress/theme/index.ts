@@ -66,6 +66,40 @@ export default {
     const { frontmatter } = useData();
     const route = useRoute();
 
+    // 添加圆形 logo 样式
+    onMounted(() => {
+      // 添加圆形 logo 样式
+      const style = document.createElement('style');
+      style.innerHTML = `
+        /* 圆形 logo 样式 */
+        .VPNavBarTitle img,
+        .VPImage.image-src,
+        img.VPImage.logo,
+        .VPHero .image-container img,
+        .VPNavBarTitle .logo,
+        .VPImage,
+        img[src*="logo.png"] {
+          border-radius: 50% !important;
+          overflow: hidden !important;
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1) !important;
+          transition: all 0.3s ease !important;
+        }
+
+        /* 鼠标悬停效果 */
+        .VPNavBarTitle img:hover,
+        .VPImage.image-src:hover,
+        img.VPImage.logo:hover,
+        .VPHero .image-container img:hover,
+        .VPNavBarTitle .logo:hover,
+        .VPImage:hover,
+        img[src*="logo.png"]:hover {
+          transform: scale(1.05) !important;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+        }
+      `;
+      document.head.appendChild(style);
+    });
+
     // giscus 配置
     giscusTalk({
       repo: 'wkwbk/wkwbk.github.io', // 仓库
@@ -81,7 +115,7 @@ export default {
       },
       //默认值为 true，表示已启用，此参数可以忽略；
       //如果为 false，则表示未启用
-      //您可以使用“comment:true”序言在页面上单独启用它
+      //您可以使用"comment:true"序言在页面上单独启用它
       true
     );
 
